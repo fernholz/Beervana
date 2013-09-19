@@ -17,10 +17,23 @@
                 <h1 class="site-title">Beervana 2013</h1>
             </div>
         </div>
+        <?php
+            if($_GET['error'] == 'User Exists') {
+                echo '<div class="container alert alert-danger">';
+                echo "Sorry, that username has already been taken. Please try another.";
+                echo '</div>';
+            }
+            if($_GET['error'] == 'Required Fields') {
+                echo '<div class="container alert alert-danger">';
+                echo "All fields are required. Please fill them in and try again.";
+                echo '</div>';
+            }
+        ?>
         <div class="container">
             <form class="form-signin" action="beers/index.php" method="GET">
-                <h2 class="form-signin-heading">Please Sign Up</h2>
+                <h2 class="form-signin-heading">Please Sign Up/In</h2>
                 <input type="text" class="form-control" placeholder="Username" autofocus="true" name="username"/>
+                <input type="password" class="form-control" placeholder="Password" name="password"/>
                 <input type="email" class="form-control" placeholder="Email" name="email"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
             </form>

@@ -8,30 +8,38 @@ require __DIR__.'/../src/jsonUserPersister.class.php';
 use Beervana\JsonUserPersister;
 use Beervana\User;
 
-if($_GET['username'] && $_GET['email']) {
+$host  = $_SERVER['HTTP_HOST'];
+
+if($_GET['username'] && $_GET['email'] && $_GET['password']) {
 
     $beers = file_get_contents(__DIR__.'/../storage/beers/beers.json');
     $beers = json_decode($beers);
 
     $attributes = array(
         "username" => $_GET['username'],
+        "password" => $_GET['password'],
         "email" => $_GET['email'],
         "beers" => $beers
     );
     $user = new User($attributes);
 
-    $persister = new JsonUserPersister(__DIR__.'/../storage/users');
-    $persister->persist($user);
-
-    $host  = $_SERVER['HTTP_HOST'];
     $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    header("Location: http://$host$uri?username=".$attributes['username']);
-}
 
-if($_GET['username']) {
+    $persister = new JsonUserPersister(__DIR__.'/../storage/users');
+    if($persister->checkUserUnique($attributes['username'])) {
+        $persister->persist($user);
+        header("Location: http://$host$uri?username=".$attributes['username'].'&loggedin=true');
+    }
+    else if($persister->checkUserExists($attributes['username'], $attributes['password'])) {
+        header("Location: http://$host$uri?username=".$attributes['username'].'&loggedin=true');
+    }
+    else {
+        header("Location: http://$host?error=User Exists");
+    }
+}
+else if($_GET['username'] && $_GET['loggedin']) {
     $userData = file_get_contents(__DIR__."/../storage/users/".$_GET['username'].".json");
     $userData = json_decode($userData, true);
-    //print_r($userData);
 
 ?>
     <html>
@@ -97,8 +105,6 @@ if($_GET['username']) {
         echo "</ul>";
         echo '</div>';
     }
-}
-
 ?>
             </div>
         </div>
@@ -118,3 +124,9 @@ if($_GET['username']) {
 <!--        <script src="../../assets/js/bootstrap.min.js"></script>-->
     </body>
     </html>
+<?php
+}
+else {
+    header("Location: http://$host?error=Required Fields");
+}
+

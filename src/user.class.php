@@ -7,6 +7,7 @@ class User
     public $username;
     public $attributes = array(
         "username",
+        "password",
         "email",
         "beers"
     );

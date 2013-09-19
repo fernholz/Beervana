@@ -1,6 +1,4 @@
 $( document ).ready(function() {
-    console.log('ready');
-
     $('.list-group-item input, .list-group-item textarea, .list-group-item select').change(function() {
         console.log($(this));
 
@@ -18,10 +16,10 @@ $( document ).ready(function() {
                 value: value,
                 beerLocation: beerLocation
             },
-            async: false
+            async: true
         })
             .done(function(response) {
-                console.log(response);
+
             });
 
     });
