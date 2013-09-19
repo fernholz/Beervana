@@ -2,15 +2,15 @@
 
 ini_set('display_errors', 0);
 
-require __DIR__.'/../../src/user.class.php';
-require __DIR__.'/../../src/jsonUserPersister.class.php';
+require __DIR__.'/../src/user.class.php';
+require __DIR__.'/../src/jsonUserPersister.class.php';
 
 use Beervana\JsonUserPersister;
 use Beervana\User;
 
 if($_GET['username'] && $_GET['email']) {
 
-    $beers = file_get_contents(__DIR__.'/../../storage/beers/beers.json');
+    $beers = file_get_contents(__DIR__.'/../storage/beers/beers.json');
     $beers = json_decode($beers);
 
     $attributes = array(
@@ -20,7 +20,7 @@ if($_GET['username'] && $_GET['email']) {
     );
     $user = new User($attributes);
 
-    $persister = new JsonUserPersister(__DIR__.'/../../storage/users');
+    $persister = new JsonUserPersister(__DIR__.'/../storage/users');
     $persister->persist($user);
 
     $host  = $_SERVER['HTTP_HOST'];
@@ -29,7 +29,7 @@ if($_GET['username'] && $_GET['email']) {
 }
 
 if($_GET['username']) {
-    $userData = file_get_contents(__DIR__."/../../storage/users/".$_GET['username'].".json");
+    $userData = file_get_contents(__DIR__."/../storage/users/".$_GET['username'].".json");
     $userData = json_decode($userData, true);
     //print_r($userData);
 
@@ -40,8 +40,8 @@ if($_GET['username']) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Bootstrap -->
-        <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../../assets/css/style.css" rel="stylesheet" media="screen">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../assets/css/style.css" rel="stylesheet" media="screen">
 
     </head>
     <body>
