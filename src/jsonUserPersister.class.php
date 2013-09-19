@@ -2,7 +2,7 @@
 
 namespace Beervana;
 
-require __DIR__ . 'user.class.php';
+use Beervana\User;
 
 class JsonUserPersister
 {

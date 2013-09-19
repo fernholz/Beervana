@@ -1,30 +1,43 @@
-<?php
 
-ini_set('display_errors', 0);
+<html>
+<head>
+    <title>Beervana Tracker 2013</title>
 
-require_once __DIR__.'/../vendor/autoload.php';
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/css/style.css" rel="stylesheet" media="screen">
 
-$app = require __DIR__.'/../src/app.php';
-require __DIR__.'/../config/prod.php';
-require __DIR__.'/../src/controllers.php';
+</head>
+<body>
 
-use Beervana\JsonUserPersister;
-use Beervana\User;
+    <div id="wrap">
+        <div id="header">
+            <div class="container">
+                <h1 class="site-title">Beervana 2013</h1>
+            </div>
+        </div>
+        <div class="container">
+            <form class="form-signin" action="beers/index.php" method="GET">
+                <h2 class="form-signin-heading">Please Sign Up</h2>
+                <input type="text" class="form-control" placeholder="Username" autofocus="true" name="username"/>
+                <input type="email" class="form-control" placeholder="Email" name="email"/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
 
-$app['user.persist_path'] = '/storage/users';
-$app['user.persister'] = $app->share(function ($app) {
-    return new JsonUserPersister($app['user.persist_path']);
-});
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">
+                Site brewed up by <a href="http://twitter.com/fernholz" target="_blank">Derek Fernholz</a>.
+            </p>
+        </div>
+    </div>
 
-$app->get('/register', function(Request $request) use($app) {
-    $username = $request->get('username');
-    $email = $request->get('email');
-    $attributes = array(
-        "username" => $username,
-        "email" => $email
-    );
-    $user = new User($attributes);
-    return $app['user.persister']->persist($user);
-});
-
-$app->run();
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+</body>
+</html>
