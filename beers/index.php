@@ -16,7 +16,7 @@ if($_GET['username'] && $_GET['email'] && $_GET['password']) {
     $beers = json_decode($beers);
 
     $attributes = array(
-        "username" => $_GET['username'],
+        "username" => strtolower($_GET['username']),
         "password" => $_GET['password'],
         "email" => $_GET['email'],
         "beers" => $beers
@@ -38,7 +38,7 @@ if($_GET['username'] && $_GET['email'] && $_GET['password']) {
     }
 }
 else if($_GET['username'] && $_GET['loggedin']) {
-    $userData = file_get_contents(__DIR__."/../storage/users/".$_GET['username'].".json");
+    $userData = file_get_contents(__DIR__."/../storage/users/".strtolower($_GET['username']).".json");
     $userData = json_decode($userData, true);
 
 ?>
