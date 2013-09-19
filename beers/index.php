@@ -69,8 +69,8 @@ if($_GET['username']) {
 
             echo "<div class='row'>";
             echo "<div class='container'>";
-            echo "<div class='pull-left'><label><input type='checkbox' value='".$beer."' name='checked_".$beer."' ".$checked."/><strong>Drank this</strong></label></div>";
-            echo "<label class='pull-right'><strong>Rating: </strong><select class='form-control input-sm' name='rating_".$beer."'>";
+            echo "<div class='pull-left'><label><input type='checkbox' value='".$beer['id']."' name='checked_".$beer['id']."' ".$checked."/><strong>Drank this</strong></label></div>";
+            echo "<label class='pull-right'><strong>Rating: </strong><select class='form-control input-sm' name='rating_".$beer['id']."'>";
             $rating = false;
             if($beer['rating']) {
                 $rating = $beer['rating'];
@@ -86,7 +86,7 @@ if($_GET['username']) {
             echo "</div>";
             echo "</div>";
             echo "<h3 class='clearfix'>" . $beer['info'] . "</h3>";
-            echo "<textarea class='form-control' rows='2' name='notes_'".$beer."' placeholder='My thoughts...'>";
+            echo "<textarea class='form-control' rows='2' name='notes_".$beer['id']."' placeholder='My thoughts...'>";
             if($beer['notes']) {
                 echo $beer['notes'];
             }
@@ -113,6 +113,7 @@ if($_GET['username']) {
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//code.jquery.com/jquery.js"></script>
+        <script src="../assets/js/main.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!--        <script src="../../assets/js/bootstrap.min.js"></script>-->
     </body>
