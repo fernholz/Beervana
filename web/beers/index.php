@@ -38,7 +38,7 @@ if($_GET['username']) {
     <head>
         <title>Beervana Tracker 2013</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Bootstrap -->
         <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../../assets/css/style.css" rel="stylesheet" media="screen">
@@ -69,8 +69,8 @@ if($_GET['username']) {
 
             echo "<div class='row'>";
             echo "<div class='container'>";
-            echo "<div class='checkbox pull-left'><label><input type='checkbox' value='".$beer."' name='checked_".$beer."' ".$checked."/><strong>Drank this</strong></label></div>";
-            echo "<label class='pull-right'><strong>Rating: </strong><select class='form-control' name='rating_".$beer."'>";
+            echo "<div class='pull-left'><label><input type='checkbox' value='".$beer."' name='checked_".$beer."' ".$checked."/><strong>Drank this</strong></label></div>";
+            echo "<label class='pull-right'><strong>Rating: </strong><select class='form-control input-sm' name='rating_".$beer."'>";
             $rating = false;
             if($beer['rating']) {
                 $rating = $beer['rating'];
@@ -114,6 +114,6 @@ if($_GET['username']) {
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../../assets/js/bootstrap.min.js"></script>
+<!--        <script src="../../assets/js/bootstrap.min.js"></script>-->
     </body>
     </html>
