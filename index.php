@@ -9,12 +9,12 @@
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="assets/css/style.css" rel="stylesheet" media="screen">
-    <link href="assets/css/add2home.css" rel="stylesheet" media="screen">
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/img/apple-icon-57x57-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/apple-icon-72x72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/apple-icon-114x114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/apple-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-startup-image" href="assets/img/startup.png">
 </head>
 <body>
 
@@ -57,7 +57,6 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
-    <script src="assets/js/add2home.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!--    <script src="../assets/js/bootstrap.min.js"></script>-->
 </body>

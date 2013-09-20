@@ -58,6 +58,24 @@ else if($_GET['username'] && $_GET['loggedin']) {
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-icon-72x72-precomposed.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-icon-114x114-precomposed.png" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-icon-144x144-precomposed.png" />
+        <!-- iPhone -->
+        <link href="../assets/img/apple-touch-startup-image-320x460.png"
+              media="(device-width: 320px) and (device-height: 480px)
+                 and (-webkit-device-pixel-ratio: 1)"
+              rel="apple-touch-startup-image">
+
+        <!-- iPhone (Retina) -->
+        <link href="../assets/img/apple-touch-startup-image-640x920.png"
+              media="(device-width: 320px) and (device-height: 480px)
+                 and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image">
+
+        <!-- iPhone 5 -->
+        <link href="../assets/img/apple-touch-startup-image-640x1096.png"
+              media="(device-width: 320px) and (device-height: 568px)
+                 and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image">
+
     </head>
     <body>
 
