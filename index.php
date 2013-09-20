@@ -31,11 +31,11 @@
         ?>
         <div class="container">
             <form class="form-signin" action="beers/index.php" method="GET">
-                <h2 class="form-signin-heading">Please Sign Up/In</h2>
+                <h2 class="form-signin-heading">Please Sign Up / In</h2>
                 <input type="text" class="form-control" placeholder="Username" autofocus="true" name="username"/>
                 <input type="password" class="form-control" placeholder="Password" name="password"/>
                 <input type="email" class="form-control" placeholder="Email" name="email"/>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up / In</button>
             </form>
         </div>
     </div>
