@@ -65,8 +65,8 @@ else if($_GET['username'] && $_GET['loggedin']) {
 
     foreach($userData['beers'] as $beerLocation => $beers) {
         echo '<div class="panel panel-primary">';
-        echo "<div class='beer-location panel-heading'>" . $beerLocation . "</div>";
-        echo "<ul class='beer-list list-group'>";
+        echo "<div class='beer-location panel-heading'>" . $beerLocation . "<span class='glyphicon glyphicon-circle-arrow-down toggle-beer-location pull-right'></span></div>";
+        echo "<ul class='beer-list list-group' style='display:none'>";
         foreach($beers as $beer) {
             $checked = "";
             if($beer['checked']) {

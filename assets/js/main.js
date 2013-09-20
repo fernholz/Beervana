@@ -23,6 +23,15 @@ $( document ).ready(function() {
             });
 
     });
+
+    $('.beer-list').first().toggle();
+    $('.toggle-beer-location').first().toggleClass('glyphicon-circle-arrow-up').toggleClass('glyphicon-circle-arrow-down');
+
+    $('.toggle-beer-location').click(function() {
+        $(this).closest('.panel-primary').find('.beer-list').toggle();
+        $(this).toggleClass('glyphicon-circle-arrow-up');
+        $(this).toggleClass('glyphicon-circle-arrow-down');
+    });
 });
 
 function getUrlVars() {

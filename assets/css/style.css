@@ -53,6 +53,9 @@ body {
 .beer-location.panel-heading {
     font-size: 20px;
 }
+.toggle-beer-location {
+    cursor: pointer;
+}
 .beer-list {
     list-style: none;
 }
