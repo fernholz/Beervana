@@ -79,7 +79,7 @@ else if($_GET['username'] && $_GET['loggedin']) {
 
     </head>
     <body>
-
+        <div id="statusbar-shim"></div>
         <div id="wrap">
             <div id="header">
                 <div class="container">
