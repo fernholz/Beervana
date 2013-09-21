@@ -5,6 +5,11 @@ $( document ).ready(function() {
         var username = getUrlVars()['username'];
         var updated = $(this).attr('name');
         var value = $(this).val();
+        if(value === '1') {
+            if(!$(this).is(':checked')) {
+                value = 0;
+            }
+        }
         var beerLocation = $(this).closest('.panel-primary').find('.beer-location').text();
 
         $.ajax({
@@ -16,7 +21,7 @@ $( document ).ready(function() {
                 value: value,
                 beerLocation: beerLocation
             },
-            async: true
+            async: false
         })
             .done(function(response) {
 
